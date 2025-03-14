@@ -21,6 +21,7 @@ let numbers: number[] = [];
 // Tuple
 let user: [number, string] = [1, "Edward"]
 
+console.log(user)
 // Enums
 // PascalCase
 enum Size { Small = 1, Medium, Large }
@@ -53,3 +54,71 @@ let employee: {
 }
 // employee.name = "Edward"
 
+// Alias can define custom type
+
+type Employee = {
+    readonly id: number,
+    name: string,
+}
+
+// Union types
+
+function kgToLbs(weight: number | string): number {
+    // Narrowing
+    if (typeof weight === 'number')
+        return weight * 2.2
+    else 
+        return parseFloat(weight) * 2.2
+}
+
+console.log(kgToLbs(10))
+console.log(kgToLbs('10'))
+
+// Intersection type
+type Dragable = {
+    drag: () => void
+}
+
+type Reziseable = {
+    resize: () => void
+}
+
+type UIWidget = Dragable & Reziseable
+
+let textBox: UIWidget = {
+    drag: () => {},
+    resize: () => {},
+
+}
+
+// Literal Types
+// Literal (exact, specific)
+type Quantity = 50 | 100
+let quantity: Quantity = 100;
+
+// Nullable Types
+
+function greet(name: string | null): void {
+    if (name)
+        console.log('Hello ',name.toLowerCase())
+    else
+        console.log('Hola!')
+}
+
+greet("Arigathanks")
+
+type Customer = {
+    birthday: Date
+}
+
+function getCustomer(id: number): Customer | null {
+    return id === 0 ? null : { birthday: new Date }
+}
+
+let customer = getCustomer(1)
+// Optional property access operator '?.'
+console.log(customer?.birthday)
+
+// Optional call
+let log: any = null
+log?.('a')

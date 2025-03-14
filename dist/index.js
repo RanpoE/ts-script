@@ -10,6 +10,7 @@ let isPublished = true;
 let level;
 let numbers = [];
 let user = [1, "Edward"];
+console.log(user);
 var Size;
 (function (Size) {
     Size[Size["Small"] = 1] = "Small";
@@ -30,4 +31,31 @@ let employee = { id: 1,
         console.log(date);
     }
 };
+function kgToLbs(weight) {
+    if (typeof weight === 'number')
+        return weight * 2.2;
+    else
+        return parseFloat(weight) * 2.2;
+}
+console.log(kgToLbs(10));
+console.log(kgToLbs('10'));
+let textBox = {
+    drag: () => { },
+    resize: () => { },
+};
+let quantity = 100;
+function greet(name) {
+    if (name)
+        console.log('Hello ', name.toLowerCase());
+    else
+        console.log('Hola!');
+}
+greet("Arigathanks");
+function getCustomer(id) {
+    return id === 0 ? null : { birthday: new Date };
+}
+let customer = getCustomer(1);
+console.log(customer === null || customer === void 0 ? void 0 : customer.birthday);
+let log = null;
+log === null || log === void 0 ? void 0 : log('a');
 //# sourceMappingURL=index.js.map
